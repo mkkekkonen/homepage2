@@ -77,6 +77,34 @@ var technologyIcons = [
   },
 ];
 
+var socialLinks = [
+  {
+    iconClass: 'fa-brands fa-linkedin',
+    href: 'https://www.linkedin.com/in/mkkekkonen/',
+    text: 'LinkedIn',
+  },
+  {
+    iconClass: 'fa-brands fa-github',
+    href: 'https://github.com/mkkekkonen',
+    text: 'GitHub',
+  },
+  {
+    iconClass: 'fa-brands fa-hashnode',
+    href: 'https://mkkekkonen.hashnode.dev/',
+    text: 'My blog at Hashnode',
+  },
+  {
+    iconClass: 'fa-solid fa-square-root-variable',
+    href: 'https://www.mkkekkonen.fi/math/',
+    text: 'A math visualization project',
+  },
+  {
+    iconClass: 'fa-solid fa-rocket',
+    href: 'https://play.google.com/store/apps/details?id=com.mkkekkonen.spaceshooter&pli=1',
+    text: 'A space shooter game for Android',
+  },
+];
+
 function renderTechnologyIcons() {
   var elements = technologyIcons.map(function (item) {
     var iconContainer = $('<div></div>')
@@ -124,9 +152,32 @@ function renderTechnologyIcons() {
   $('#techList').append(elements);
 }
 
+function renderSocialLinks() {
+  var elements = socialLinks.map(function (item) {
+    var icon = $('<i></i>')
+      .addClass(item.iconClass);
+
+    var link = $('<a></a>')
+      .prop('href', item.href)
+      .prop('target', '_blank')
+      .prop('rel', 'noreferrer')
+      .text(item.text);
+
+    var linkContainer = $('<div></div>')
+      .addClass('link')
+      .append(icon)
+      .append(link);
+
+    return linkContainer;
+  });
+
+  $('#socialLinks').append(elements);
+}
+
 function run() {
   $(function () {
     renderTechnologyIcons();
+    renderSocialLinks();
   });
 }
 
